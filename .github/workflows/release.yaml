@@ -24,10 +24,10 @@ jobs:
           node-version: 14
 
       - name: Set up JDK 11
-        uses: AdoptOpenJDK/install-jdk@v1
+        uses: actions/setup-java@v3
         with:
-          version: '11'
-          architecture: x64
+          java-version: '11'
+          distribution: 'temurin'
 
       - name: Set up Gren
         run: npm install github-release-notes -g
@@ -123,7 +123,7 @@ jobs:
         id: create_release
         uses: actions/create-release@latest
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         with:
           tag_name: ${{ github.event.inputs.release-version }} 
           release_name: ${{ github.event.inputs.release-version }}
