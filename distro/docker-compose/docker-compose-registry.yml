@@ -1,0 +1,31 @@
+version: '3'
+
+volumes:
+  postgre_apicurio_registry:
+
+services:
+  apicurio-registry:
+    image: 'apicurio/apicurio-registry-sql:latest-release'
+    depends_on:
+      - apicurio-registry-db
+    environment:
+      AUTH_ENABLED: 'true'
+      KEYCLOAK_URL: ${MR_KEYCLOAK_URL}
+      KEYCLOAK_REALM: registry
+      KEYCLOAK_API_CLIENT_ID: registry-api
+      KEYCLOAK_UI_CLIENT_ID: apicurio-registry
+      ROLE_BASED_AUTHZ_ENABLED: 'true'
+      # REGISTRY_AUTH_OWNER_ONLY_AUTHORIZATION: 'true'
+      REGISTRY_DATASOURCE_URL: 'jdbc:postgresql://apicurio-registry-db/apicurio-registry'
+      REGISTRY_DATASOURCE_USERNAME: apicurio-registry
+      REGISTRY_DATASOURCE_PASSWORD: apicurio-registry
+    ports:
+      - 8080:8080
+  apicurio-registry-db:
+    image: 'postgres:12.9'
+    environment:
+      POSTGRES_USER: apicurio-registry
+      POSTGRES_PASSWORD: apicurio-registry
+      POSTGRES_DB: apicurio-registry
+    volumes:
+      - 'postgre_apicurio_registry:/var/lib/postgresql/data'
