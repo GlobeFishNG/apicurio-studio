@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.apicurio</groupId>
         <artifactId>apicurio-studio-test-integration</artifactId>
-        <version>0.2.55-SNAPSHOT</version>
+        <version>0.2.63-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>apicurio-studio-test-integration-single-node-keycloak</artifactId>
@@ -26,7 +26,7 @@
             <dependency>
                 <groupId>org.jboss.shrinkwrap.resolver</groupId>
                 <artifactId>shrinkwrap-resolver-bom</artifactId>
-                <version>3.1.4</version>
+                <version>3.2.1</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -34,7 +34,7 @@
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
-                <version>1.6.0.Final</version>
+                <version>1.7.1.Final</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
@@ -67,7 +67,7 @@
         <dependency>
             <groupId>org.wildfly.arquillian</groupId>
             <artifactId>wildfly-arquillian-container-managed</artifactId>
-            <version>3.0.1.Final</version>
+            <version>5.0.1.Final</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -115,7 +115,7 @@
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
-            <version>6.5.1</version>
+            <version>6.19.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -238,7 +238,7 @@
                             <dependency>
                                 <groupId>org.apache.ant</groupId>
                                 <artifactId>ant</artifactId>
-                                <version>1.10.12</version>
+                                <version>1.10.14</version>
                             </dependency>
                             <dependency>
                                 <groupId>ant-contrib</groupId>
@@ -310,7 +310,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>2.22.2</version>
+                        <version>3.1.2</version>
                         <configuration>
                             <!-- Force JUnit (weird conflicts with NG) -->
                             <testNGArtifactName>none:none</testNGArtifactName>
